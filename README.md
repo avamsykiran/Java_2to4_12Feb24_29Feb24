@@ -163,9 +163,125 @@ Java 8 SE
                     static methods, if public, are called on the classes but on objects.
 
                 static classes
+                    A class inside a class is called Inner class. Inner class has access to all the other memebr of the
+                    enclosing class.
+
+                    A static class inside a class is called Nested class. Nested lcass is a treated as memeber of the enclosing
+                    class.
+
                 static block
 
+                    static {
+
+                    }
+
+                    A class can have any number of static blocks but are all clubbed into one.
+
+                    The code enclsoed in these blocks gets executed just before the class being accessed
+                    for the first time.
+
+                    Access a class means:
+                        1. Declaring a ref of the class or                              ClassName obj;
+                        2. Allocating an object to the class or                         new ClassName();
+                        3. Invoking a static method of the class or                     ClassName.staticMethod();
+                        4. accessing a static field of the class or                     ClassName.staticField=value;
+                        5. doing any of the above on the sub-classes of the class.
+
+                java.lang.Object
+
+                    is the default super class for all java classes.
+
+                    int hashCode();
+                    boolean equals(Object);     //obj1.equals(obj2)
+                    String toString();
+
         Inheretence
+
+            Defining a class from another class is called inheretence. The existing class is called
+            super class and the newly defined class is called sub class.
+
+            Simple Inhertence       Super <---- Sub
+            
+            Multi-Level Inhertence  Super <---- Sub1 <------ Sub2
+
+                                                |<---- Sub1 
+            Hirarchial Inhertence   Super <-----| 
+                                                |<---- Sub2
+
+                                    Super1 <----| 
+            Mltiple Inhertence                  |<---- Sub 
+                                    Super2 <----|
+
+            Hybrid Inheretence is a combination of the above.
+
+            Java doesnt support multiple inheretence on classes.
+
+            A super class object allocation invokes the super class constructor.
+            A sub class object allocation invokes the super class constructor followed by the sub class constructor.
+
+            'super' keyword is sued to invoke super class cnstrucotr from a sub class constructor.
+
+            'final' keyword
+                final variable can not be modified after initialzing it with a value.
+                final class can not be inherited furthur.
+
+            Employee    (empId, name, basic)
+                ↑
+                |←----ContractEmployee (empId, name, basic, contractDuration)
+                |←----Manager          (empId, name, basic, allowence) 
+                        ↑
+                        |←----Director  (empId, name, basic, allowence, share)
+
+            //super class refrences can refer to sub class objects.
+            Employee e1 = new Employee();
+            Employee e2 = new Manager();
+            Employee e3 = new Director();
+            Employee e4 = new ContractEmployee();
+
+            //Type Casting
+            Manager mgr1 = (Manager) e2;
+            Manager mgr2 = (Manager) e3;
+            Director d = (Director) e3;
+            ContractEmployee ce = (ContractEmployee) e4;
+
         Polymorphisim
+
+            having more than one method with the same name.
+
+            two methods of the same class or from a super and sub class have the same name but differ in the
+            paramList, then they are said to be overloaded.
+
+            two methods from a super and sub class have the same signature then they are said to be overridden.
+
+            class Monkey {
+                public Energy eat(Apple apple) {
+                    Energy e = new Energy();
+                    while(!apple.isEmpty()){
+                         e.add(biteAndChewAndSwallow(apple));
+                    }
+                    return e;
+                }
+
+                public Energy eat(IceCream iceCream) {
+                    Energy e = new Energy();
+                    while(!iceCream.isEmpty()){
+                         e.add(lickAndSwallow(iceCream));
+                    }
+                    return e;
+                }
+            }
+
+            class Civilian extends Monkey {
+                public Energy eat(Apple apple) {
+                    wash(apple);
+                    Piece[] pieces = cut(apple);
+                    Energy e = new Energy();
+                    for(Piece p : pieces){
+                         e.add(chewAndSwallow(p));
+                    }
+                    return e;
+                }
+            }
+
         Abstraction
 
