@@ -228,6 +228,7 @@ Java 8 SE
             Employee    (empId, name, basic)
                 ↑
                 |←----ContractEmployee (empId, name, basic, contractDuration)
+                |
                 |←----Manager          (empId, name, basic, allowence) 
                         ↑
                         |←----Director  (empId, name, basic, allowence, share)
@@ -282,6 +283,30 @@ Java 8 SE
                     return e;
                 }
             }
+
+            "super" keyword cn be used to call an overriden method.
+
+            "final" keyword when applied on a method, the method can not be overriden.
+
+            Assignemnt
+
+                Loan    (principal,timePeriod,roi)
+                    ↑
+                -----------------------------------------
+                ↑                   ↑                   ↑
+                PersonalLoan        EducationalLoan     HousingLoan
+                    purposeOfLoan           subcidyPercent      builtArea
+
+            
+                LoanService
+                    public double getRepayalbeamount(Loan loan) {
+                        //...
+                    }
+
+                    public double getEMI(Loan loan){
+                        //...
+                    }
+            
 
         Abstraction
 
