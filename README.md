@@ -297,7 +297,6 @@ Java 8 SE
                 PersonalLoan        EducationalLoan     HousingLoan
                     purposeOfLoan           subcidyPercent      builtArea
 
-            
                 LoanService
                     public double getRepayalbeamount(Loan loan) {
                         //...
@@ -310,3 +309,60 @@ Java 8 SE
 
         Abstraction
 
+            is also termed as behaviour-hiding.
+
+            abstraction in java can be achived through
+
+            1. abstract class without abstract method           
+                the abstract class can not have objects allocated.
+
+                In a SchoolAutoamtionSystem
+
+                abstract Person (name,dateOfBirth,contactNo,mailId,address)
+                            ↑
+                            |←-Student                 clazz,section
+                            |←-Teacher                 sal,subject
+                            |←-Parent
+                            |←-NonTeachiingStaff       sal
+
+            2. abstract class with abstract method  
+
+                abstract class Item{
+                    private int iCode;
+                    private String name;
+                    private double costingPrice;
+
+                    //constructrs, getters, setters ...et.,;
+
+                    abstract double getSellingPrice();  //as we dont have the formulea for computing sellingPrice.
+                }
+
+
+                any sub-class of an abstract class must override all the abstract methods .
+
+
+            3. interface
+
+                are user defined data types that can accomidate
+                    1. normal methods
+                    2. static methods
+                    3. abstract methods
+                but can not accomidate fields.
+
+            
+            abstract classes can accomidate fields and do not support multiple inheretence
+            whereas
+            an interface can not accomidate fields but supports multiple inheretence.
+
+
+                if we have choose between interface and abstract method...
+                    check if we have fields or not
+                                        }|
+                                ------------------------------
+                                |                           |
+                            we have fields                  we dont have fields
+                                |- go for abstract class            |- go for interfaces
+
+        'final' and 'abstract' keywords are contradictory and can not be used at a time.
+
+    
