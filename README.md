@@ -365,4 +365,82 @@ Java 8 SE
 
         'final' and 'abstract' keywords are contradictory and can not be used at a time.
 
+    built-in Packages
+
+        java.lang
+        java.time
+        java.util
+        java.util.function
+        java.util.stream
+        java.util.regex
+        java.util.concurrency
+        java.io
+        java.nio
+        java.sql
+
+    java.lang
+
+        implict package as it is imported by default into all java source files.
+
+        Object      implicit super class for all java classes.
+        Class       each .class in java is an object of Class.
+        System      
+                    in
+                    out
+                    err
+
+                    gc()
+                    exit(int)
+
+        String
+        StringBuilder       is Thread safe as all of its methods are synchronized. (suits best in multi-=threaded context)
+        StringBuffer        is not thread safe but has better performence (suits best in uni-threaded context)
+
+        Math
     
+        Wrapper Classes
+            Integer
+            Float
+            Double
+            Short
+            Long
+            Boolean
+            Void
+            ...etc;
+
+            boxing      wrapping a primitive variable into its respective wrapper class object
+            unboxing    unwrapping a wrapper class object into its primitive variable
+
+                int i=45;
+                Integer iObj = new Integer(i);  //boxing
+                i = iObj.getValue(); //unboxing
+
+
+            auto - boxing or auto unboxing refers to direct assignment across the wrapper class object and
+            primitive varialbw with out any additional methods
+    
+                int i=45;
+                Integer iObj = i; //auto-boxing
+                i = iObj; //auto-unboxing
+
+    Exception Handling
+
+        java.lang.Throwable (i)
+                    ↑
+                    |
+                ----------------------------
+                ↑                           ↑
+                Exception                   Error
+                    ↑
+                ----------------------------------
+                ↑                               ↑
+                RuntimeException                (any other sub classes) CHECKED EXCEPTIONS
+                ↑
+                (any other sub classes) UNCHECKED EXCEPTIONS
+                
+
+    Multi Threading
+
+        java.lang.Runnable (i)
+                    ↑
+                    Thread

@@ -25,6 +25,10 @@ public class ClassAndObjectDemoApp {
 		
 		System.out.println(e3.equals(e4));
 		System.out.println(e3.equals(e5));
+		
+		System.out.println(System.identityHashCode(e1) +"\t"+ e1.hashCode() + "\t" + e1);
+		e1.setBasiPay(4500000);
+		System.out.println(System.identityHashCode(e1) +"\t"+ e1.hashCode() + "\t" + e1);
 	}
 
 }
