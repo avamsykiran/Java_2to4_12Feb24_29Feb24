@@ -438,6 +438,66 @@ Java 8 SE
                 ↑
                 (any other sub classes) UNCHECKED EXCEPTIONS
                 
+        an exception is a specific senario where the application breaks down for a unexpected operation
+        from the user side or from external dependencies.
+
+        Reacting to an exception is called exception handling.
+
+        All sub classes of RuntimeException class including RuntimeException class are called UnChecked Exception as the
+        compiler ignores them. UnChecked Exceptions are those that can be avoided through defensive programming and
+        should not be handled (in any other manner).
+
+        All sub classes of Exception class including Exception class are called Checked Exception as the
+        compiler will force to handle these exceptions. Generally exceptions that can not be avopided by the
+        developer are called checked exceptions and these exceptions must be handled using try..catch statement.
+
+        general try..catch statement
+            try{
+                //code that may raise a Checked Exception
+            }catch(CheckedException1 exp){
+                //alternate exception handling code..
+            }catch(CheckedException2 exp){
+                //alternate exception handling code..
+            } ... 
+            finally {
+                //accomidates code that has to execute at any cost
+                //even if the 'return' is encountered.
+            }
+
+        multi-catch syntax
+
+            try{
+                //code that may raise a Checked Exception
+            } catch(CheckedException1 | CheckedException2 exp){
+                //alternate exception handling code..
+            } finally {
+                //accomidates code that has to execute at any cost
+                //even if the 'return' is encountered.
+            }
+        
+        try-with-resources syntax
+
+            try (/* decalre closable objects */) {
+              //code that may raise a Checked Exception
+            } catch(CheckedException1 | CheckedException2 exp){
+                //alternate exception handling code..
+            } 
+
+        'throw'     is used to raise an exception.
+
+                    throw new ExceptionClass();
+
+        'throws'    is used to transfer a checked exception from one function to another
+
+        User Defiend Exceptions are those sub classes that inherit either Exception or RuntimeException.
+
+    
+
+
+
+
+        
+
 
     Multi Threading
 
