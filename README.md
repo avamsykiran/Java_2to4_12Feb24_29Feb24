@@ -491,16 +491,45 @@ Java 8 SE
 
         User Defiend Exceptions are those sub classes that inherit either Exception or RuntimeException.
 
-    
+    Date & Time api
 
+        java.time
+            LocalDate           .now(),.of(year,month,day)
+            LocalTime           .now(),.of(h,min,sec)
+            LocalDateTime       .now(),.of(year,month,day,hr,min,sec)
+            ZonedDateTime       .now(ZoneId)
 
-
-
+            DateTimeFormatter   .ofPattern(dateTiemPattern)
         
+            Dureation   .between(start,end)
+            Period      .between(start,end)
 
+    Generics
 
-    Multi Threading
+        generics represent Abstract Data Types (ADTs).
 
-        java.lang.Runnable (i)
-                    ↑
-                    Thread
+        ADT means an unrecognized dataType.
+
+        Let say we need to swap 'a' with 'b'.
+
+            t = b;
+            b = a;
+            a = t;
+
+        The above algorith works for any data type and Generics are sued to indicate 'any data type'.
+
+        public class Swapper<T> {   //here T is a generic or a ADT
+
+            public void swap(T a,T b){
+                    T t;
+                    t = b;
+                    b = a;
+                    a = t;
+            }
+
+        }
+
+    Collections
+
+        Collectiosn is java approch to data-structures.
+
