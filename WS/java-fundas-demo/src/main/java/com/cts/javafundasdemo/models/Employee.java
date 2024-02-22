@@ -2,7 +2,7 @@ package com.cts.javafundasdemo.models;
 
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
 	private int empId;
 	private String fullName;
@@ -65,6 +65,11 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "empId=" + empId + ", fullName=" + fullName + ", basiPay=" + basiPay;
+	}
+
+	@Override
+	public int compareTo(Employee obj2) {
+		return  ((Integer) this.empId).compareTo(obj2.empId);
 	}
 	
 	

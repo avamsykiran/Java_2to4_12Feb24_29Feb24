@@ -533,3 +533,52 @@ Java 8 SE
 
         Collectiosn is java approch to data-structures.
 
+        java.util.Collection (i)                add(ele),remove(ele),contians(ele),size(),isEmpty(),stream()
+                    ↑
+                    |← List (i)                 represents linear data structures 
+                    |                           supports index and thus random access is possible
+                    |                           duplicate eles are allowed
+                    |                           first(),last(),get(index),removeAt(index),add(index,ele)
+                    |
+                    |← Set  (i)                 repressents a non-linear data strucutre (like trees ..etc.,)
+                        ↑                       no support fro index or randome access.
+                        |                       it does not allow duplicate elements
+                        |
+                        |← SortedSet (i)
+
+        java.util.Map (i)                       represents a key-value pair collection
+                    ↑                           put(key,value),containesKey(key),get(key),set(key,value),remove(key),size(),keySet()
+                    |                           key can not be duplicate
+                    |← SortedMap (i)
+
+        List Implementation
+            Vector              is a synchronized growable array, hence thread safe.
+            ArrayList           is a growable array
+            LinkedList          is a doubly linked list implementation
+                   
+        Set Implementation
+            HashSet             the data retrival follows no pridictable order
+            LinkedHashSet       the data retrival follows entry order 
+            TreeSet             the data retrival follows sorted order
+        
+        Map Implementation
+            HashMap             the data retrival follows no pridictable order
+            LinkedHashMap       the data retrival follows entry order 
+            TreeMap             the data retrival follows sorted order on keys
+
+        java.lang.Comparable (i)        int compareTo(object)           default comparision mechanisim
+
+                                        all Wrapper classes and String already implement Comparable interface.
+                                        it is implemented by the model class itself whose objects has to be compared.
+
+                                        obj1.compareTo(obj2);
+                                                must return 0, if both objects are equsl
+                                                must return +ve, if obj1>obj2
+                                                must return -ve, if obj1<obj2
+
+        java.util.Comparator (i)        int compare(obj1,obj2)          custom comparision mechanisim
+
+                                        it is implemeted by any other class that wnats compare a model.
+        
+        java.util.Collections (class)   that offer a variety of utility mehtods to be used acress all the collections.
+        
