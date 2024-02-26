@@ -581,4 +581,118 @@ Java 8 SE
                                         it is implemeted by any other class that wnats compare a model.
         
         java.util.Collections (class)   that offer a variety of utility mehtods to be used acress all the collections.
+
+    Assingnment:
+
+        1. Define a model called Transaction (txnId,amount,header,txnDate,txnType)
+        2. Create a list of Transactions where each trasaction must be accepted from the user
         
+         for example:
+
+                txnId,amount,header,txnDate,txnType
+                1      2000  SALARY 2024-02-01 CREDIT
+                2       100  Rent   2024-02-01 DEBIT
+                3       150  Fuel   2024-02-01 DEBIT
+                ....etc
+
+        3. totalCredit,totalDebit and sub-totals of each header has to be computed and displayed.
+
+    FunctionalInterface?
+        is any interface that has only one abstract method.
+
+        if that abstract method doest not return anythign but accepts params then that interface is called CONSUMER
+        if that abstract method doest not accept any params but return soem value then that interface is called SUPPLIER
+        if that abstract method irrepective of params, always returns a boolean value then that interface is called PREDICATE
+        otherwise it is called an operator/functional .
+
+        What is special about functional interface?
+
+            Unlike other interfaces, functional interfaces can be implimented without a class but through
+            lambda expressions.
+
+    Lambda Expression
+
+        the paramsList and a returnValue joined by '->' arrow operator.
+
+        (paramsList)    ->    (returnValue)
+
+        (a,b) -> a+b            a fucntion that accepts two values and returns their sum
+        () -> "Hello"           a function that has no params but always returns a string "Hello"
+        x -> x*x                a function that accepts a value and returns its square
+        
+        (params) -> {
+            //some logic here..
+            return "";
+        }
+
+    Functional Interface and Lambda Expression :
+
+        @FunctionalInterface
+        interface Greeting {
+            String doGreet(String userName);
+        }
+
+        Greeting g1 = unm -> "Hello " + unm;
+        System.out.println(g1.doGreet("Vamsy"));
+        
+        Greeting g2 = unm -> {
+            let h = LocalTime.now().getHours();
+            String greeting= "";
+
+            if(h<=11) greeting="Good Morning ";
+            else greeting = "Good Evening ";)
+
+            return greeting + " " + unm;
+        };
+        System.out.println(g2.doGreet("Vamsy"));
+
+    Functional Interface and Method References :
+
+        MyFuctionalInerface1 obj = ClassName::MethodName;
+
+        System.out::println can be assigned to any consumer.
+
+    Streams API
+
+        Stream is a flow of data. Streams in java are introduced to provide a scope of
+        a new programing paradigm called Functional Programming.
+
+        DataSource
+                ↑---STREAM--↓
+                            Operation1 (represented by a function )
+                                ↑---STREAM--↓
+                                        Operation2 (represented by a function )
+                                            ↑---STREAM--↓
+                                                    Operation3 (represented by a function )
+                                                        ↑---STREAM--↓
+                                                                DataCollector
+
+        In Java, DataSource can be a list/set/map/array ...etc.,
+                 DataCollectore can also be another list/set/map/array ..etc.,
+
+                 ↑---STREAM--↓   is represented by java.util.stream.Stream
+
+                 Operations are represented by FunctionalInterfaces.
+
+        java.util.stream.Stream
+
+            Stream s1 = Stream.of(val1,val2,val3...);
+            Stream s2 = list.stream();
+            Stream s3 = set.stream();
+            Stream s4 = Arrays.stream(array);
+
+            Stream Class Methods
+
+                forEach(consumer)           execute the consumer on each and every element of the stream
+                                            it returns notheing 
+                                            called a terminal operator as no furthur operators can be chained
+
+                map(operator)               executes the operator on each ele of the stream and a new stream of
+                                            the results is returned.
+                                            called a intermidate operator as another operation can be chained on it.
+
+                                            
+
+
+
+
