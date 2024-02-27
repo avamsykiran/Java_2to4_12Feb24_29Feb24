@@ -691,8 +691,80 @@ Java 8 SE
                                             the results is returned.
                                             called a intermidate operator as another operation can be chained on it.
 
-                                            
+                filter(predicate)           return a new stream of those values that satisfy the predicate from the oldStream.
+                                            called a intermidate operator as another operation can be chained on it.
 
+                reduce(binaryOperator)      it applies the binaryOperator on the first two eles of the stream,
+                                            and the result is paired wih the next ele and again operators is applied
+                                            and son on.. untilt he entire stream is reduced to one single ele.
+
+                                            called a terminal operator as no furthur operators can be chained
+
+                collect(Collector)          Collectors.toList(), Collectors.toSet()
+
+    Assingnment:
+
+        1. Define a model called Transaction (txnId,amount,header,txnDate,txnType)
+        2. Create a list of Transactions where each trasaction must be accepted from the user
+        
+        for example:
+
+                txnId,amount,header,txnDate,txnType
+                1      2000  SALARY 2024-02-01 CREDIT
+                2       100  Rent   2024-02-01 DEBIT
+                3       150  Fuel   2024-02-01 DEBIT
+                ....etc
+
+        3. totalCredit,totalDebit, and balance
+
+    IO Streams
+
+        Input Output Streams to Read and Write data from a input stream or into an output stream.
+
+        java.io
+
+            Binary Stream that allow reading and writing in binary form of (byte).
+
+            InputStream
+                |- FileInputStream
+                |- DataInputStream
+                |- ObjectInputStream ..etc.,
+
+            OutputStream
+                |- FileOutputStream
+                |- DataOutputStream
+                |- ObjectOutputStream ..etc.,
+
+            Character Stream that allow reading and writing in text form of (Strings).
+
+            Reader
+                |-InputStreamReader
+                |-BuffredReader
+                |-FileReader
+
+            Writer
+                |- PrintWriter
+                |- FileWriter
+
+            File
+
+            IOException
+            FileNotFoundException
+
+        java.nio
+
+            Non Blocking Streams
+
+            Buffers
+            Channels
+
+            Files
+            Directories
+            Paths
+
+
+    Multi-Threading
+    JDBC
 
 
 
