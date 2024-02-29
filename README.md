@@ -761,9 +761,24 @@ Java 8 SE
             Files
             Directories
             Paths
+    
+    Assignment:
 
+        a menu driven console application to Add/DELETE/SEARCH/LIST operations on a list of emplopyees.
 
+        Use multi-layer archetecture.
+
+            interface EmployeeDAO
+            class EmployeeDAOImpl       //use a java.util.List to stroe data and java.io to persistant serialize or deserialse
+
+            interface EmployeeService
+            class EmployeeServiceImpl   //validate the mployee beforfe adding or updating.
+
+            EmployeeCRUDApplication     //to perform operation as driven by a menu.
+            
     Multi-Threading
+
+        
     JDBC
 
 

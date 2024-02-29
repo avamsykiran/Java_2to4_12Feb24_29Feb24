@@ -1,8 +1,9 @@
 package com.cts.javafundasdemo.models;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Employee implements Comparable<Employee> {
+public class Employee implements Comparable<Employee>,Serializable {
 
 	private int empId;
 	private String fullName;
@@ -10,7 +11,6 @@ public class Employee implements Comparable<Employee> {
 	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Employee(int empId, String fullName, double basiPay) {
