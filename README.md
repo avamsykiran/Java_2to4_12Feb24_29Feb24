@@ -776,10 +776,90 @@ Java 8 SE
 
             EmployeeCRUDApplication     //to perform operation as driven by a menu.
             
+    JDBC
+
+     Oracle          <-> Thin Driver <->
+     MySQl           <-> ConnectorJ Driver <-> JDBC-API <--> [ DAO <-model-> SERVICE <-model-> UI ] <--> EndUser
+     Ms SQL Server   <-> Jet Driver <->
+
+        A Jdbc is a database connectivity specification (only declarations [interfaces and abstract class] ).
+        Each Database driver is an implementation of this specification
+
+            Oracle      jdbc:oracle:thin:@serverName:1534/OracleServiceName
+            MySQL       jdbc:mysql://serNameOrIP:3306/databaseName
+
+        java.sql
+
+            Connection con = DriverManager.getConnection(dbConnectionString,userId,password);
+                        ↑
+                ---------------------------------------------------------------------------------
+                ↑                                       ↑                                       ↑ 
+            Statement st = con.createStatement();       |           CallableStatement cst = con.prepareCall(call);
+                                        PreparedStatement pst = con.prepareStatement(qry);
+
+            Statement and PreparedStatement are used to execute DDL/DML/DRL queries.
+            CallableStatement is used to execute a database procedure or function.
+
+            Statement                       used to handle dynamic queries.
+                int executeUpdate(qry);         used to execute insert/update/delete qrys and return affectedRowCount
+                boolean execute(qry);           used to execute create/drop/alter qrys and returns isDoneOrNot
+                ResultSet executeQuery(qry);    used to execute Select qry and the data is returns as a ResutlSet Obj
+
+            PreparedStatement               used to handle static queries and supports paramaters.
+                int executeUpdate();         used to execute insert/update/delete qrys and return affectedRowCount
+                boolean execute();           used to execute create/drop/alter qrys and returns isDoneOrNot
+                ResultSet executeQuery();    used to execute Select qry and the data is returns as a ResutlSet Obj
+                void set<Type>(paramIndex,paramValue)
+
+            ResultSet
+                is an interface that hold the data returned by the Select qry.
+
+                    boolean next()
+                    <Type> get<Type>(colIndex)
+                    <Type> get<Type>(colLabel)
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.22</version>
+		    </dependency>
+    
     Multi-Threading
 
+        java.lang.Runnable (interface)      void run();
+                    ↑
+                java.lang.Thread (class)    Thread()
+                                            Thread(String threadName)
+                                            Thread(Runnable job)
+                                            Thread(String threadName,Runnable job)
+
+                                            String getName();
+                                            void setName(String);
+                                            void setPriority(int);
+                                            int getPriority();
+                                            void start();
+                                            static void sleep(long millSec)
+                                            static Thread currentThread();
+
+        Every appliction in java is a thread.
+
+        instantiate (new Thread())
+            |
+            ↓
+        Ready State ...  (.start()) ←-----------------------------------------|
+            |                                                                 |
+            | (the reosurces are available ..)                                |
+            ↓                                                                 |
+        Running State     (.run() is executed)                                |
+            |                                                                 |
+            ↓                                                                 |
+        |--←-→-----------------(sleep(long))--------→ Paused state..---------→|
+        |
+        | (once job is done)
+        ↓
+        Terminated State..
         
-    JDBC
+    
 
 
 

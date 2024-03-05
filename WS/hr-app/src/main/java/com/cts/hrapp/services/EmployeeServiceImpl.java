@@ -3,8 +3,8 @@ package com.cts.hrapp.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cts.hrapp.daos.EmployeeDAOJdbcImpl;
 import com.cts.hrapp.daos.EmployeeDao;
-import com.cts.hrapp.daos.EmployeeDaoIOStreamImpl;
 import com.cts.hrapp.exceptions.InvalidEmployeeDetailsException;
 import com.cts.hrapp.exceptions.InvalidEmployeeIdException;
 import com.cts.hrapp.exceptions.OperationFailedException;
@@ -15,7 +15,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDao empDao;
 	
 	public EmployeeServiceImpl() throws OperationFailedException {
-		this.empDao = new EmployeeDaoIOStreamImpl();
+		this.empDao = new EmployeeDAOJdbcImpl(); //EmployeeDaoIOStreamImpl();
 	}
 
 	private boolean isValidEmpId(int empId) {
